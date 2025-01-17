@@ -6,7 +6,7 @@
 /*   By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:08:26 by oyuhi             #+#    #+#             */
-/*   Updated: 2025/01/12 09:37:36 by oyuhi            ###   ########.fr       */
+/*   Updated: 2025/01/17 12:32:56 by oyuhi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,11 @@ int					ft_putchar_prt(int i);
 int					ft_putstr_prt(char *str);
 int					identify_type(char c, va_list ap);
 int					ft_printf(const char *format, ...);
+
+//*** so_long ***//
+char				**ft_array_dup(char **array);
+void				ft_array_free(char **array);
+int					ft_error(char *message);
+int					ft_strlen_newline(char *str);
 
 #endif
