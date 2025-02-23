@@ -6,7 +6,7 @@
 #    By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/26 13:46:22 by oyuhi             #+#    #+#              #
-#    Updated: 2025/01/17 12:33:23 by oyuhi            ###   ########.fr        #
+#    Updated: 2025/02/23 15:51:44 by oyuhi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,22 +42,24 @@ OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 all: $(NAME) 
 
 $(NAME): $(OBJS)
-	$(ARS) $(NAME) $(OBJS)
+	@echo "🔧 Building libft..."
+	@$(ARS) $(NAME) $(OBJS)
 	
 # Compile each .c file into its corresponding .o file.
 # %: matches any string (used for pattern matching).
 # $<: the first dependency (source .c file).
 # $@: the target file (.o file to be created).
 $(OBJ_DIR)/%.o: %.c
-	mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@ 
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
-	rm -f $(BONUS_FLAG)
+	@rm -f $(OBJS) $(BONUS_OBJS)
+	@echo "🧹 Cleaning libft objects..."
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "🧹 Removing libft.a..."
 
 re: fclean all
 
