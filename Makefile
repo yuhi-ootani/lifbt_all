@@ -6,7 +6,7 @@
 #    By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/26 13:46:22 by oyuhi             #+#    #+#              #
-#    Updated: 2025/02/23 15:51:44 by oyuhi            ###   ########.fr        #
+#    Updated: 2025/02/24 10:45:10 by oyuhi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,11 +54,12 @@ $(OBJ_DIR)/%.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean:
-	@rm -f $(OBJS) $(BONUS_OBJS)
+	@rm -f $(OBJS) 
 	@echo "🧹 Cleaning libft objects..."
 
 fclean: clean
 	@rm -f $(NAME)
+	@rm -fd $(OBJ_DIR)
 	@echo "🧹 Removing libft.a..."
 
 re: fclean all
