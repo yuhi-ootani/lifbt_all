@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: knemcova <knemcova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:58:16 by oyuhi             #+#    #+#             */
-/*   Updated: 2024/10/25 17:37:07 by oyuhi            ###   ########.fr       */
+/*   Updated: 2025/02/27 09:06:33 by knemcova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static size_t	ft_count_words(char const *s, char c)
 	return (words);
 }
 
-static char	*ft_strndup(const char *s, size_t len)
+static char	*ft_split_strndup(const char *s, size_t len)
 {
 	size_t	i;
 	char	*dup;
@@ -82,7 +82,7 @@ static int	ft_insert_word(char **result, const char *s, char c)
 			start = i;
 			while (s[i] && s[i] != c)
 				i++;
-			result[index] = ft_strndup(s + start, i - start);
+			result[index] = ft_split_strndup(s + start, i - start);
 			if (!result[index])
 			{
 				ft_free(result, index);

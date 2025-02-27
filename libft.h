@@ -6,7 +6,7 @@
 /*   By: knemcova <knemcova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:08:26 by oyuhi             #+#    #+#             */
-/*   Updated: 2025/02/24 11:30:34 by knemcova         ###   ########.fr       */
+/*   Updated: 2025/02/27 09:01:42 by knemcova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+/*added by kiki*/
 int					ft_strcmp(const char *s1, const char *s2);
+char				*ft_strndup(const char *s, size_t n);
 
 //*** libft_bonus ***//
 typedef struct s_list
