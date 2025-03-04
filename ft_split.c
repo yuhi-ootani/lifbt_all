@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knemcova <knemcova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:58:16 by oyuhi             #+#    #+#             */
-/*   Updated: 2025/02/27 09:06:33 by knemcova         ###   ########.fr       */
+/*   Updated: 2025/03/04 13:15:30 by oyuhi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,8 +146,8 @@ char	**ft_split(char const *s, char c)
 // int	main(void)
 // {
 // 	// Test cases
-// 	test_ft_split("Hello World", ' ');
-// 	test_ft_split("abc:def:ghi", ':');
+// 	test_ft_split("Hello=", '=');
+// 	test_ft_split("Hello", '=');
 // 	test_ft_split(" leading space", ' ');
 // 	test_ft_split("  only spaces ", ' ');
 // 	test_ft_split("abc:def::ghi", ':');
