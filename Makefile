@@ -6,14 +6,14 @@
 #    By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/26 13:46:22 by oyuhi             #+#    #+#              #
-#    Updated: 2025/03/16 10:40:00 by oyuhi            ###   ########.fr        #
+#    Updated: 2025/03/16 11:59:03 by oyuhi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fPIC
 
 #r: Add or replace object files in the archive.
 #c: Create the archive if it doesn’t already exist.
