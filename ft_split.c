@@ -6,49 +6,33 @@
 /*   By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:58:16 by oyuhi             #+#    #+#             */
-/*   Updated: 2025/03/04 13:15:30 by oyuhi            ###   ########.fr       */
+/*   Updated: 2025/03/17 10:19:43 by oyuhi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_count_words(char const *s, char c)
+static size_t	ft_count_words(char const *s, char *delimiters)
 {
 	size_t	words;
 	int		in_word;
+	size_t	i;
 
+	i = 0;
 	words = 0;
 	in_word = 0;
-	while (*s)
+	while (s[i])
 	{
-		if (*s != c && in_word == 0)
+		if (!ft_strchr(delimiters, s[i]) && in_word == 0)
 		{
 			in_word = 1;
 			words++;
 		}
-		if (*s == c)
+		if (ft_strchr(delimiters, s[i]))
 			in_word = 0;
-		s++;
-	}
-	return (words);
-}
-
-static char	*ft_split_strndup(const char *s, size_t len)
-{
-	size_t	i;
-	char	*dup;
-
-	dup = (char *)malloc((len + 1) * sizeof(char));
-	if (!dup)
-		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		dup[i] = s[i];
 		i++;
 	}
-	dup[i] = '\0';
-	return (dup);
+	return (words);
 }
 
 static void	ft_free(char **arr, size_t num)
@@ -64,8 +48,7 @@ static void	ft_free(char **arr, size_t num)
 	free(arr);
 }
 
-// Insert words into the result array
-static int	ft_insert_word(char **result, const char *s, char c)
+static int	ft_insert_word(char **result, const char *s, char *delimiters)
 {
 	size_t	i;
 	size_t	start;
@@ -75,14 +58,14 @@ static int	ft_insert_word(char **result, const char *s, char c)
 	index = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (ft_strchr(delimiters, s[i]))
 			i++;
 		else
 		{
 			start = i;
-			while (s[i] && s[i] != c)
+			while (s[i] && !ft_strchr(delimiters, s[i]))
 				i++;
-			result[index] = ft_split_strndup(s + start, i - start);
+			result[index] = ft_strndup(s + start, i - start);
 			if (!result[index])
 			{
 				ft_free(result, index);
@@ -94,65 +77,77 @@ static int	ft_insert_word(char **result, const char *s, char c)
 	return (1);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char *delimiters)
 {
 	char	**result;
 	size_t	words;
 
 	if (!s)
 		return (NULL);
-	words = ft_count_words(s, c);
+	words = ft_count_words(s, delimiters);
 	result = (char **)malloc((words + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);
 	result[words] = NULL;
-	if (!ft_insert_word(result, s, c))
+	if (!ft_insert_word(result, s, delimiters))
 		return (NULL);
 	return (result);
 }
 
 // #include <stdio.h>
 // #include <stdlib.h>
-// #include <string.h>
 
-// // Helper function to print the result of ft_split
-// void	print_split_result(char **result)
-// {
-// 	if (!result)
-// 	{
-// 		printf("ft_split returned NULL (allocation failure).\n");
-// 		return ;
-// 	}
-// 	for (int i = 0; result[i]; i++)
-// 	{
-// 		printf("  [%d]: \"%s\"\n", i, result[i]);
-// 	}
-// 	// Free the allocated memory
-// 	for (int i = 0; result[i]; i++)
-// 		free(result[i]);
-// 	free(result);
-// }
+// // Function prototypes (assuming they're in another file)
+// char			**ft_split(char const *s, char *delimiters);
+// void			ft_free(char **arr, size_t num);
 
-// // Test function for ft_split
-// void	test_ft_split(char const *s, char c)
+// // Helper function to print the result of `ft_split`
+// void	print_split_result(char *input, char *delimiters)
 // {
 // 	char	**result;
+// 	int		i;
 
-// 	printf("\nTesting: \"%s\" with delimiter '%c'\n", s ? s : "NULL", c);
-// 	result = ft_split(s, c);
-// 	print_split_result(result);
+// 	result = ft_split(input, delimiters);
+// 	if (!result)
+// 	{
+// 		printf("Error: ft_split returned NULL\n");
+// 		return ;
+// 	}
+// 	printf("Input: \"%s\" | Delimiters: \"%s\"\n", input, delimiters);
+// 	i = 0;
+// 	while (result[i])
+// 	{
+// 		printf("Token %d: \"%s\"\n", i, result[i]);
+// 		free(result[i]); // Free individual tokens
+// 		i++;
+// 	}
+// 	free(result); // Free array
+// 	printf("\n");
 // }
 
 // int	main(void)
 // {
-// 	// Test cases
-// 	test_ft_split("Hello=", '=');
-// 	test_ft_split("Hello", '=');
-// 	test_ft_split(" leading space", ' ');
-// 	test_ft_split("  only spaces ", ' ');
-// 	test_ft_split("abc:def::ghi", ':');
-// 	test_ft_split("", ',');
-// 	test_ft_split(NULL, ',');
-// 	test_ft_split("no_delimiters", ',');
+// 	printf("==== Testing ft_split ====\n");
+// 	// ✅ Basic Test Cases
+// 	print_split_result("hello world", " ");
+// 	print_split_result("hello,world", ",");
+// 	print_split_result("this|is|a|test", "|");
+// 	print_split_result("split:me:properly", ":");
+// 	// ✅ Multiple delimiters
+// 	print_split_result("one,two;three four", ",; ");
+// 	// ✅ Multiple spaces
+// 	print_split_result("   multiple   spaces  ", " ");
+// 	// ✅ Empty input
+// 	print_split_result("", " ");
+// 	print_split_result(" ", " ");
+// 	// ✅ No delimiters found
+// 	print_split_result("no_delimiters_here", ",");
+// 	// ✅ Leading/trailing delimiters
+// 	print_split_result(",start,with,comma,", ",");
+// 	print_split_result("  space before", " ");
+// 	print_split_result("ends with space ", " ");
+// 	// ✅ Special characters
+// 	print_split_result("abc\tdef\nghi", "\t\n");
+// 	printf("==== Tests Completed ====\n");
 // 	return (0);
 // }
