@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: knemcova <knemcova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 12:27:44 by oyuhi             #+#    #+#             */
-/*   Updated: 2024/10/27 17:42:33 by oyuhi            ###   ########.fr       */
+/*   Updated: 2025/03/19 14:49:01 by knemcova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	ft_isset(char c, char const *set)
 	return (0);
 }
 
-static void	ft_strncpy(char *dest, const char *str, size_t n)
+static void	ft_strncopy(char *dest, const char *str, size_t n)
 {
 	size_t	i;
 
@@ -57,7 +57,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	result = (char *)malloc(j - i + 2);
 	if (!result)
 		return (NULL);
-	ft_strncpy(result, s1 + i, j - i + 1);
+	ft_strncopy(result, s1 + i, j - i + 1);
 	return (result);
 }
 
