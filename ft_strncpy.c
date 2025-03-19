@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin_three.c                                 :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: knemcova <knemcova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/16 10:38:00 by oyuhi             #+#    #+#             */
-/*   Updated: 2025/03/19 14:41:08 by knemcova         ###   ########.fr       */
+/*   Created: 2025/03/19 14:30:43 by knemcova          #+#    #+#             */
+/*   Updated: 2025/03/19 14:40:43 by knemcova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin_three(char *str1, char *str2, char *str3)
+char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	char	*tmp;
-	char	*result;
+	size_t	i;
 
-	if (!str1 && !str2 && !str3)
-		return (NULL);
-	if (!str1)
-		str1 = "";
-	if (!str2)
-		str2 = "";
-	if (!str3)
-		str3 = "";
-	tmp = ft_strjoin(str1, str2);
-	if (!tmp)
-		return (NULL);
-	result = ft_strjoin(tmp, str3);
-	free(tmp);
-	return (result);
+	i = 0;
+	while (i < n && src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
 }
