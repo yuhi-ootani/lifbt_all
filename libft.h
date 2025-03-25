@@ -6,7 +6,7 @@
 /*   By: knemcova <knemcova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:08:26 by oyuhi             #+#    #+#             */
-/*   Updated: 2025/03/19 14:38:56 by knemcova         ###   ########.fr       */
+/*   Updated: 2025/03/25 14:13:59 by knemcova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char				*ft_strdup(const char *s);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
-char				**ft_split(char const *s, char *delimiters);
+char				**ft_split(char const *s, const char *delimiters);
 char				*ft_itoa(int n);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
@@ -62,6 +62,8 @@ void				ft_putnbr_fd(int n, int fd);
 int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strndup(const char *s, size_t n);
 char				*ft_strncpy(char *dest, const char *src, size_t n);
+size_t				ft_array_count_str(char **array);
+void				*ft_realloc(void *ptr, size_t old_size, size_t new_size);
 /*added by yuhi*/
 char				*ft_strjoin_three(char *str1, char *str2, char *str3);
 

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: knemcova <knemcova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:58:16 by oyuhi             #+#    #+#             */
-/*   Updated: 2025/03/17 10:19:43 by oyuhi            ###   ########.fr       */
+/*   Updated: 2025/03/25 14:19:46 by knemcova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_count_words(char const *s, char *delimiters)
+static size_t	ft_count_words(char const *s, const char *delimiters)
 {
 	size_t	words;
 	int		in_word;
@@ -48,7 +48,7 @@ static void	ft_free(char **arr, size_t num)
 	free(arr);
 }
 
-static int	ft_insert_word(char **result, const char *s, char *delimiters)
+static int	ft_insert_word(char **result, const char *s, const char *delimiters)
 {
 	size_t	i;
 	size_t	start;
@@ -77,7 +77,7 @@ static int	ft_insert_word(char **result, const char *s, char *delimiters)
 	return (1);
 }
 
-char	**ft_split(char const *s, char *delimiters)
+char	**ft_split(char const *s, const char *delimiters)
 {
 	char	**result;
 	size_t	words;
