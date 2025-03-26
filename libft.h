@@ -6,7 +6,7 @@
 /*   By: knemcova <knemcova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:08:26 by oyuhi             #+#    #+#             */
-/*   Updated: 2025/03/25 14:13:59 by knemcova         ###   ########.fr       */
+/*   Updated: 2025/03/26 18:12:20 by knemcova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ char				*ft_strndup(const char *s, size_t n);
 char				*ft_strncpy(char *dest, const char *src, size_t n);
 size_t				ft_array_count_str(char **array);
 void				*ft_realloc(void *ptr, size_t old_size, size_t new_size);
+int					ft_fprintf(int fd, const char *format, ...);
 /*added by yuhi*/
 char				*ft_strjoin_three(char *str1, char *str2, char *str3);
 
