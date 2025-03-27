@@ -6,7 +6,7 @@
 /*   By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:57:10 by oyuhi             #+#    #+#             */
-/*   Updated: 2025/03/27 15:08:35 by oyuhi            ###   ########.fr       */
+/*   Updated: 2025/03/27 15:20:28 by oyuhi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,15 @@ char	**ft_array_join(char **array1, char **array2)
 		len1 = ft_array_count_str(array1);
 	if (array2)
 		len2 = ft_array_count_str(array2);
-	new_array = (char **)malloc(sizeof(char *) * (len1 + len2 + 1));
+	new_array = (char **)ft_calloc(sizeof(char *) * (len1 + len2 + 1));
 	if (!new_array)
 		return (NULL);
-	new_array[len1 + len2] = NULL;
 	if (!array_range_dup(new_array, array1, 0, len1)
 		|| !array_range_dup(new_array, array2, len1, len1 + len2))
 	{
 		free(new_array);
 		return (NULL);
 	}
+	new_array[len1 + len2] = NULL;
 	return (new_array);
 }
