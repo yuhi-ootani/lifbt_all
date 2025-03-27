@@ -6,7 +6,7 @@
 /*   By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 10:09:16 by oyuhi             #+#    #+#             */
-/*   Updated: 2025/01/17 12:34:20 by oyuhi            ###   ########.fr       */
+/*   Updated: 2025/03/27 12:20:24 by oyuhi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	ft_array_free(char **array)
 	{
 		while (array[i])
 		{
-			free(array[i]);
+			if (array[i])
+				free(array[i]);
 			i++;
 		}
 		free(array);
