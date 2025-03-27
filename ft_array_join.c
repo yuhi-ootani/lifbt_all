@@ -6,7 +6,7 @@
 /*   By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:57:10 by oyuhi             #+#    #+#             */
-/*   Updated: 2025/03/27 14:36:23 by oyuhi            ###   ########.fr       */
+/*   Updated: 2025/03/27 15:08:35 by oyuhi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ static bool	array_range_dup(char **dst, char **src, size_t dst_start,
 		dst[dst_i] = ft_strdup(src[src_i]);
 		if (!dst[dst_i])
 		{
+			while (dst_i > 0)
+			{
+				free(dst[dst_i - 1]);
+				dst_i--;
+			}
 			return (false);
 		}
 		dst_i++;
@@ -54,7 +59,7 @@ char	**ft_array_join(char **array1, char **array2)
 	if (!array_range_dup(new_array, array1, 0, len1)
 		|| !array_range_dup(new_array, array2, len1, len1 + len2))
 	{
-		ft_array_free(new_array);
+		free(new_array);
 		return (NULL);
 	}
 	return (new_array);
