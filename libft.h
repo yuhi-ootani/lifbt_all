@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knemcova <knemcova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:08:26 by oyuhi             #+#    #+#             */
-/*   Updated: 2025/03/26 18:12:20 by knemcova         ###   ########.fr       */
+/*   Updated: 2025/03/27 14:14:47 by oyuhi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 // printf
 # include <stdarg.h>
+# include <stdbool.h>
 
 //*** libft ***//
 int					ft_isalpha(int c);
@@ -65,8 +66,11 @@ char				*ft_strncpy(char *dest, const char *src, size_t n);
 size_t				ft_array_count_str(char **array);
 void				*ft_realloc(void *ptr, size_t old_size, size_t new_size);
 int					ft_fprintf(int fd, const char *format, ...);
-/*added by yuhi*/
+/*minishell yuhi*/
 char				*ft_strjoin_three(char *str1, char *str2, char *str3);
+char				**ft_array_join(char **array1, char **array2);
+bool				ft_array_range_dup(char **dst, char **src, size_t dst_start,
+						size_t dst_end);
 
 //*** libft_bonus ***//
 typedef struct s_list
