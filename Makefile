@@ -6,7 +6,7 @@
 #    By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/26 13:46:22 by oyuhi             #+#    #+#              #
-#    Updated: 2025/03/27 14:13:42 by oyuhi            ###   ########.fr        #
+#    Updated: 2025/03/27 14:34:21 by oyuhi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ SRCS = ft_atoi.c ft_array_count_str.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isa
 		ft_get_next_line.c ft_get_next_line_utils.c \
 		ft_printf.c ft_printf_utils.c \
 		ft_array_dup.c ft_array_free.c ft_error.c ft_strlen_newline.c \
-		ft_array_rang_dup.c ft_array_join.c \
+		ft_array_join.c \
 		
 
 OBJ_DIR = objs
