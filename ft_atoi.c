@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: knemcova <knemcova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 14:55:34 by oyuhi             #+#    #+#             */
-/*   Updated: 2024/11/04 17:35:39 by oyuhi            ###   ########.fr       */
+/*   Updated: 2025/03/29 15:30:45 by knemcova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_isspace(char c)
+static int	ft_is_atoi_space(char c)
 {
 	return (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
 		|| c == '\r');
 }
 
-static int	ft_isnumber(char c)
+static int	ft_is_atoi_number(char c)
 {
 	return (c >= '0' && c <= '9');
 }
@@ -38,14 +38,14 @@ int	ft_atoi(const char *nptr)
 	long long	sign;
 
 	result = 0;
-	while (ft_isspace(*nptr))
+	while (ft_is_atoi_space(*nptr))
 	{
 		nptr++;
 	}
 	sign = ft_sign(*nptr);
 	if (*nptr == '+' || *nptr == '-')
 		nptr++;
-	while (ft_isnumber(*nptr))
+	while (ft_is_atoi_number(*nptr))
 	{
 		if ((result > (LONG_MAX - (*nptr - '0')) / 10))
 		{
@@ -58,6 +58,7 @@ int	ft_atoi(const char *nptr)
 	}
 	return ((int)(result * sign));
 }
+
 //// if (result > LONG_MAX / 10 || (result == LONG_MAX / 10 && *nptr
 //// 				- '0' > LONG_MAX % 10))
 
