@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin_three.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knemcova <knemcova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 10:38:00 by oyuhi             #+#    #+#             */
-/*   Updated: 2025/03/19 14:41:08 by knemcova         ###   ########.fr       */
+/*   Updated: 2025/03/29 18:27:08 by oyuhi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin_three(char *str1, char *str2, char *str3)
+char	*ft_strjoin_three(const char *str1,const  char *str2,const  char *str3)
 {
 	char	*tmp;
 	char	*result;
