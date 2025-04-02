@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: knemcova <knemcova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:08:26 by oyuhi             #+#    #+#             */
-/*   Updated: 2025/03/29 18:27:39 by oyuhi            ###   ########.fr       */
+/*   Updated: 2025/04/02 16:51:12 by knemcova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@
 // printf
 # include <stdarg.h>
 # include <stdbool.h>
+
+typedef struct s_fprintf_buffer
+{
+	char			*buffer;
+	int				index;
+	int				buf_size;
+}					t_fprintf_buffer;
 
 //*** libft ***//
 int					ft_isalpha(int c);
