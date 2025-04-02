@@ -6,7 +6,7 @@
 /*   By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 18:34:06 by oyuhi             #+#    #+#             */
-/*   Updated: 2024/11/03 17:39:10 by oyuhi            ###   ########.fr       */
+/*   Updated: 2025/04/02 11:47:45 by oyuhi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ char	*ft_strdup(const char *s)
 	int		i;
 	char	*dup;
 
-	len = ft_strlen(s);
+	len = 0;
+	if (s)
+		len = ft_strlen(s);
 	dup = (char *)malloc((len + 1) * sizeof(char));
 	if (!dup)
 		return (NULL);
