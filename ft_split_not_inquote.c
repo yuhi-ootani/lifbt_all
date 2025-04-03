@@ -6,7 +6,7 @@
 /*   By: oyuhi <oyuhi@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:58:16 by oyuhi             #+#    #+#             */
-/*   Updated: 2025/04/03 13:34:52 by oyuhi            ###   ########.fr       */
+/*   Updated: 2025/04/03 13:58:46 by oyuhi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static int	ft_insert_word(char **result, const char *s, const char *delimiters)
 		if (!s[i])
 			break ;
 		start = i;
-		i = get_end_of_str(s, i, delimiters, in_quote);
+		i = get_end_of_str(s, i, delimiters, &in_quote);
 		result[index] = ft_strndup(s + start, i - start);
 		if (!result[index])
 		{
